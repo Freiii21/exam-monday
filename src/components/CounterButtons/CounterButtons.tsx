@@ -1,4 +1,4 @@
-import s from './Buttons.module.css'
+import s from './CounterButtons.module.css'
 import {valuesRangeType} from '../../App';
 
 type ButtonsPropsType = {
@@ -8,7 +8,7 @@ type ButtonsPropsType = {
     valuesRange: valuesRangeType
 }
 
-export const Buttons = (props:ButtonsPropsType) => {
+export const CounterButtons = (props:ButtonsPropsType) => {
     const inc = () => props.inc(props.currentNumber);
     const reset = () => props.reset();
     const disableInc = props.currentNumber >= props.valuesRange.max;

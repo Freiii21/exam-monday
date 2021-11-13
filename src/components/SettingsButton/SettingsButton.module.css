@@ -1,0 +1,13 @@
+.set {
+    width: 150px;
+    margin: auto;
+    margin-top: 15px;
+    background-color: deepskyblue;
+    border-radius: 15px;
+    border: none;
+    height: 40px;
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}

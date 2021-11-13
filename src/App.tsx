@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Counter} from './components/Counter/Counter';
-import {Buttons} from './components/Buttons/Buttons';
+import {CounterButtons} from './components/CounterButtons/CounterButtons';
+import {Settings} from './components/Settings/Settings';
+import {SettingsButton} from './components/SettingsButton/SettingsButton';
 
 export type valuesRangeType = {
     min: number
@@ -24,12 +26,22 @@ function App() {
     const reset = () => setNum(valuesRange.min);
 
     return (
-        <div className={'counter'}>
-            <div className={'numbers'}>
-                <Counter currentNumber={num} valuesRange={valuesRange}/>
+        <div className={'common'}>
+            <div className={'frame'}>
+                <div className={'settings'}>
+                    <Settings />
+                </div>
+                <div className={'buttons'}>
+                    <SettingsButton />
+                </div>
             </div>
-            <div className={'buttons'}>
-                <Buttons currentNumber={num} inc={inc} reset={reset} valuesRange={valuesRange}/>
+            <div className={'frame'}>
+                <div className={'numbers'}>
+                    <Counter currentNumber={num} valuesRange={valuesRange}/>
+                </div>
+                <div className={'buttons'}>
+                    <CounterButtons currentNumber={num} inc={inc} reset={reset} valuesRange={valuesRange}/>
+                </div>
             </div>
         </div>
     );
