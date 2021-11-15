@@ -1,0 +1,14 @@
+.common {
+    display: grid;
+    grid-template-rows: 50px 50px;
+    font-size: 35px;
+    font-weight: bold;
+    color: deepskyblue;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 250px 50px;
+}
