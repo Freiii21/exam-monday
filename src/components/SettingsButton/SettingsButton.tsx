@@ -2,8 +2,10 @@ import s from './SettingsButton.module.css'
 
 export const SettingsButton = () => {
     return (
-        <div className={s.set}>
-            set
+        <div>
+            <button className={s.set}>
+                set
+            </button>
         </div>
 
     )

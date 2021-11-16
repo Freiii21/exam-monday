@@ -25,4 +25,11 @@
     font-weight: bold;
     border: 3px solid deepskyblue;
     border-radius: 10px;
+    outline:none;
+    background-color: whitesmoke;
+}
+
+.error {
+    border: 3px solid red;
+    background-color: palevioletred;
 }

@@ -2,45 +2,49 @@ import React, {useState} from 'react';
 import './App.css';
 import {Counter} from './components/Counter/Counter';
 import {CounterButtons} from './components/CounterButtons/CounterButtons';
-import {Settings} from './components/Settings/Settings';
-import {SettingsButton} from './components/SettingsButton/SettingsButton';
+// import {Settings} from './components/Settings/Settings';
+// import {SettingsButton} from './components/SettingsButton/SettingsButton';
 
-export type valuesRangeType = {
-    min: number
-    max: number
+export type settingType = {
+    id: string
+    title: string
+    value: number
 }
 
 function App() {
-    const valuesRange: valuesRangeType = {
-        min: 0,
-        max: 5,
-    }
-    const [num, setNum] = useState<number>(valuesRange.min);
+    const [error, setError] = useState<boolean>(false);
+    const [settingParameters, setSettingParameters] = useState<Array<settingType>>([
+        {id: 'max', title:'max value:', value:7},
+        {id: 'min', title:'start value:', value:0},
+    ])
+
+    const [currentNum, setCurrentNum] = useState<number>(settingParameters[1].value);
 
     const inc = (currentNumber: number) => {
-        if (currentNumber < valuesRange.max) {
+        if (currentNumber < settingParameters[0].value) {
             let newNum = currentNumber + 1;
-            setNum(newNum);
+            setCurrentNum(newNum);
         }
     }
-    const reset = () => setNum(valuesRange.min);
+    const reset = () => setCurrentNum(settingParameters[1].value);
+
 
     return (
         <div className={'common'}>
-            <div className={'frame'}>
-                <div className={'settings'}>
-                    <Settings />
-                </div>
-                <div className={'buttons'}>
-                    <SettingsButton />
-                </div>
-            </div>
+            {/*<div className={'frame'}>*/}
+            {/*    /!*<div className={'settings'}>*!/*/}
+            {/*    /!*    <Settings valuesRange={valuesRange} changeValuesRange={changeValuesRange} error={error}/>*!/*/}
+            {/*    /!*</div>*!/*/}
+            {/*    <div className={'buttons'}>*/}
+            {/*        <SettingsButton/>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <div className={'frame'}>
                 <div className={'numbers'}>
-                    <Counter currentNumber={num} valuesRange={valuesRange}/>
+                    <Counter currentNumber={currentNum} settingParameters={settingParameters}/>
                 </div>
                 <div className={'buttons'}>
-                    <CounterButtons currentNumber={num} inc={inc} reset={reset} valuesRange={valuesRange}/>
+                    <CounterButtons currentNumber={currentNum} inc={inc} reset={reset} settingParameters={settingParameters}/>
                 </div>
             </div>
         </div>

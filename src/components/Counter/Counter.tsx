@@ -1,13 +1,13 @@
 import s from './Counter.module.css'
-import {valuesRangeType} from '../../App';
+import {settingType} from '../../App';
 
 type CounterPropsType = {
-    currentNumber: number;
-    valuesRange: valuesRangeType
+    currentNumber: number
+    settingParameters: settingType[]
 }
 
 export const Counter = (props:CounterPropsType) => {
-    const counterClass = props.currentNumber === props.valuesRange.max ? `${s.usual} ${s.max}` : s.usual;
+    const counterClass = props.currentNumber === props.settingParameters[0].value ? `${s.usual} ${s.max}` : s.usual;
 
     return (
         <div className={counterClass}>
