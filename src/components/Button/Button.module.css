@@ -7,11 +7,15 @@
     border-radius: 15px;
     background-color: deepskyblue;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     color: black;
 }
 
+.singleButton {
+    margin-left: 150px;
+    width: 150px;
+}
 .disabled {
     opacity: 0.5;
 }

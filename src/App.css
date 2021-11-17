@@ -6,21 +6,11 @@
   margin: auto;
 }
 .frame {
-  width: 500px;
+  width: 506px;
   height: 350px;
-  margin: auto;
-  margin-top: 250px;
+  margin: 250px auto auto;
   border: 3px solid deepskyblue;
   border-radius: 15px;
   display: grid;
   grid-template-rows: 250px 100px;
 }
-
-.settings {
-  border: 3px solid deepskyblue;
-  border-radius: 15px;
-  width: 450px;
-  margin: 25px
-}
-
-

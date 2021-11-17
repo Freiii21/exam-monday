@@ -1,38 +1,40 @@
 import s from './Settings.module.css'
 import {ChangeEvent} from 'react';
+import {Button} from '../Button/Button';
+import {settingType} from '../../App';
 
 type SettingsPropsType = {
-    changeValuesRange: (value: number, id: "min" | "max") => void
-    error: boolean
+    currentNumber: number
+    settingParameters: settingType[]
+    set: () => void
 }
 
-export const Settings = (props:SettingsPropsType) => {
-    // const setMaxValue = (e:ChangeEvent<HTMLInputElement>) => {
-    //     const newValue = Number(e.currentTarget.value);
-    //     if(newValue <= props.valuesRange.min){
-    //
-    //     }
-    //     props.changeValuesRange(newValue, "max")
-    // }
-
-    const setMinValue = (e:ChangeEvent<HTMLInputElement>) => {
-        const newValue = Number(e.currentTarget.value);
-        props.changeValuesRange(newValue, "min")
-    }
-    const errorClass = props.error ? `${s.input} ${s.error}` : s.input;
-    return (
-        <div className={s.common}>
-            <div className={s.row}>
-                <div>max value:</div>
-                {/*<div>*/}
-                {/*    <input type={'number'} value={props.valuesRange.max} onChange={setMaxValue} className={errorClass}/>*/}
-                {/*</div>*/}
+export const Settings = (props: SettingsPropsType) => {
+    const settingsElements = props.settingParameters.map(setting => {
+        return (
+            <div key={setting.id} className={s.row}>
+                <div>
+                    {setting.title}
+                </div>
+                <div>
+                    <input type="number" value={setting.value} className={s.input}/>
+                </div>
             </div>
-            <div className={s.row}>
-                <div>start value:</div>
-                {/*<div>*/}
-                {/*    <input type={'number'} value={props.valuesRange.min} onChange={setMinValue} className={errorClass}/>*/}
-                {/*</div>*/}
+        )
+
+    })
+
+    return (
+        <div>
+            <div className={s.settingsField}>
+                {settingsElements}
+            </div>
+            <div className={s.buttonField}>
+                    <Button title={'set'}
+                            currentNumber={props.currentNumber}
+                            onClick={props.set}
+                            settingParameters={props.settingParameters}
+                    />
             </div>
         </div>
     )

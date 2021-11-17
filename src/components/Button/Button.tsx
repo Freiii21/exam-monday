@@ -4,13 +4,13 @@ import {settingType} from '../../App';
 type ButtonsPropsType = {
     title: string
     currentNumber: number
-    onClick: (number: number) => void
+    onClick: () => void
     settingParameters: settingType[]
 }
 
 export const Button = (props: ButtonsPropsType) => {
     const onClickHandler = () => {
-        props.onClick(props.currentNumber);
+        props.onClick();
     }
 
     let disable: boolean;
@@ -25,8 +25,8 @@ export const Button = (props: ButtonsPropsType) => {
             disable = false;
             break;
     }
-
-    const buttonClass = disable ? `${s.usual} ${s.disabled}` : s.usual;
+    const usualClass = props.title === 'set' ? `${s.usual} ${s.singleButton}` : s.usual;
+    const buttonClass = disable ? `${usualClass} ${s.disabled}` : usualClass;
 
     return (
         <button className={buttonClass} onClick={onClickHandler} disabled={disable}>

@@ -10,11 +10,11 @@ type CounterPropsType = {
 }
 
 export const Counter = (props: CounterPropsType) => {
-    const counterClass = props.currentNumber === props.settingParameters[0].value ? `${s.usual} ${s.max}` : s.usual;
+    const counterField = props.currentNumber === props.settingParameters[0].value ? `${s.usual} ${s.max}` : s.usual;
 
     return (
         <div>
-            <div className={counterClass}>
+            <div className={counterField}>
                 {props.currentNumber}
             </div>
             <div className={s.buttonsField}>
