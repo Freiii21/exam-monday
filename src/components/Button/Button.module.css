@@ -1,0 +1,17 @@
+.usual {
+    height: 47px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: deepskyblue;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    color: black;
+}
+
+.disabled {
+    opacity: 0.5;
+}

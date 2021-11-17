@@ -12,7 +12,6 @@
   margin-top: 250px;
   border: 3px solid deepskyblue;
   border-radius: 15px;
-  color: white;
   display: grid;
   grid-template-rows: 250px 100px;
 }
@@ -24,18 +23,4 @@
   margin: 25px
 }
 
-.numbers {
-  background-color: deepskyblue;
-  border-radius: 15px;
-  width: 450px;
-  margin: 25px
-}
-
-.buttons {
-  border: 3px solid deepskyblue;
-  border-radius: 15px;
-  width: 450px;
-  margin-left: 25px;
-  margin-bottom: 25px;
-}
 

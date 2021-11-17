@@ -1,10 +1,25 @@
 .usual {
-    color: black;
-    font-weight: bold;
+    width: 450px;
+    margin: 25px;
+    border: 3px solid deepskyblue;
+    border-radius: 15px;
     font-size: 140px;
+    font-weight: bold;
     text-align: center;
+    color: deepskyblue;
 }
 
 .max {
     color: red;
+}
+
+.buttonsField {
+    display: grid;
+    grid-template-columns: 180px 270px;
+    width: 450px;
+    height: 77px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    border: 3px solid deepskyblue;
+    border-radius: 15px;
 }
