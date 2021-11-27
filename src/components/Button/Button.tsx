@@ -1,11 +1,11 @@
 import s from './Button.module.css'
-import {settingType} from '../../App';
+import {settingsType} from '../../App';
 
 type ButtonsPropsType = {
     title: string
     currentNumber: number
     onClick: () => void
-    settingParameters: settingType[]
+    settingParameters: settingsType
 }
 
 export const Button = (props: ButtonsPropsType) => {
@@ -16,10 +16,10 @@ export const Button = (props: ButtonsPropsType) => {
     let disable: boolean;
     switch (props.title) {
         case 'inc':
-            disable = props.currentNumber === props.settingParameters[0].value;
+            disable = props.currentNumber === props.settingParameters.max.value;
             break;
         case 'reset':
-            disable = props.currentNumber === props.settingParameters[1].value;
+            disable = props.currentNumber === props.settingParameters.start.value;
             break;
         default:
             disable = false;

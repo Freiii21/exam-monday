@@ -1,16 +1,16 @@
 import s from './Counter.module.css'
-import {settingType} from '../../App';
+import {settingsType} from '../../App';
 import {Button} from '../Button/Button';
 
 type CounterPropsType = {
     currentNumber: number
-    settingParameters: settingType[]
+    settingParameters: settingsType
     inc: () => void
     reset: () => void
 }
 
 export const Counter = (props: CounterPropsType) => {
-    const counterField = props.currentNumber === props.settingParameters[0].value ? `${s.usual} ${s.max}` : s.usual;
+    const counterField = props.currentNumber === props.settingParameters.max.value ? `${s.usual} ${s.max}` : s.usual;
 
     return (
         <div>

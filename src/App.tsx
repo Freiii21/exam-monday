@@ -4,27 +4,46 @@ import './App.css';
 import {Counter} from './components/Counter/Counter';
 import {Settings} from './components/Settings/Settings';
 
+export type settingNamesType = "max" | "start"
+
 export type settingType = {
-    id: string
     title: string
     value: number
 }
 
+export type settingsType = {
+    max: settingType
+    start: settingType
+}
+
 function App() {
     const [error, setError] = useState<boolean>(false);
-    const [settingParameters, setSettingParameters] = useState<Array<settingType>>([
-        {id: v1(), title: 'max value:', value: 5},
-        {id: v1(), title: 'start value:', value: 0},
-    ])
-    const [currentValue, setCurrentValue] = useState<number>(settingParameters[1].value);
+    const [settingParameters, setSettingParameters] = useState<settingsType>(
+        {
+            max: {
+                title:"max value:",
+                value:5,
+            },
+            start: {
+                title:"start value:",
+                value:0,
+            },
+        }
+    )
+    const [currentValue, setCurrentValue] = useState<number>(settingParameters.start.value);
 
     const inc = () => {
-        if (currentValue < settingParameters[0].value) {
+        if (currentValue < settingParameters.max.value) {
             let newNum = currentValue + 1;
             setCurrentValue(newNum);
         }
     }
-    const reset = () => setCurrentValue(settingParameters[1].value);
+    const reset = () => setCurrentValue(settingParameters.start.value);
+
+    const newParameterHandler = (type: settingNamesType, newValue: number) => {
+        const copySettings = {...settingParameters, [type]:{...settingParameters[type], value:newValue}};
+        setSettingParameters(copySettings);
+    }
     const set = () => alert('Set pressed');
 
     return (
@@ -33,6 +52,7 @@ function App() {
                 <Settings
                     currentNumber={currentValue}
                     settingParameters={settingParameters}
+                    newParameterHandler={newParameterHandler}
                     set={set}
                 />
             </div>
