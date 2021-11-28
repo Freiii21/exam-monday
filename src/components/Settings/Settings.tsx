@@ -8,7 +8,14 @@ type SettingsPropsType = {
     currentNumber: number
     settingParameters: settingsType
     newParameterHandler: (type: settingNamesType, newValue: number) => void
+    // globalError: boolean
+    // onErrorHandler: (status:boolean) => void
+    errorMaxValue: boolean
+    errorStartValue: boolean
+    onErrorMaxHandler: (status:boolean) => void
+    onErrorStartHandler: (status:boolean) => void
     set: () => void
+    editMode: boolean
 }
 
 export const Settings = (props: SettingsPropsType) => {
@@ -39,6 +46,12 @@ export const Settings = (props: SettingsPropsType) => {
                     type={'max'}
                     settingParameters={props.settingParameters}
                     newParameterHandler={props.newParameterHandler}
+                    errorMaxValue={props.errorMaxValue}
+                    errorStartValue={props.errorStartValue}
+                    onErrorMaxHandler={props.onErrorMaxHandler}
+                    onErrorStartHandler={props.onErrorStartHandler}
+                    // globalError={props.globalError}
+                    // onErrorHandler={props.onErrorHandler}
                 />
                 <SettingsRow
                     // title={props.settingParameters.start.title}
@@ -46,6 +59,12 @@ export const Settings = (props: SettingsPropsType) => {
                     type={'start'}
                     settingParameters={props.settingParameters}
                     newParameterHandler={props.newParameterHandler}
+                    errorMaxValue={props.errorMaxValue}
+                    errorStartValue={props.errorStartValue}
+                    onErrorMaxHandler={props.onErrorMaxHandler}
+                    onErrorStartHandler={props.onErrorStartHandler}
+                    // globalError={props.globalError}
+                    // onErrorHandler={props.onErrorHandler}
                 />
             </div>
             <div className={s.buttonField}>
@@ -53,6 +72,7 @@ export const Settings = (props: SettingsPropsType) => {
                         currentNumber={props.currentNumber}
                         onClick={props.set}
                         settingParameters={props.settingParameters}
+                        editMode={props.editMode}
                 />
             </div>
         </div>

@@ -6,6 +6,7 @@ type ButtonsPropsType = {
     currentNumber: number
     onClick: () => void
     settingParameters: settingsType
+    editMode: boolean
 }
 
 export const Button = (props: ButtonsPropsType) => {
@@ -16,10 +17,13 @@ export const Button = (props: ButtonsPropsType) => {
     let disable: boolean;
     switch (props.title) {
         case 'inc':
-            disable = props.currentNumber === props.settingParameters.max.value;
+            disable = !props.editMode ? props.currentNumber === props.settingParameters.max.value : true;
             break;
         case 'reset':
-            disable = props.currentNumber === props.settingParameters.start.value;
+            disable = !props.editMode ?  props.currentNumber === props.settingParameters.start.value : true;
+            break;
+        case 'set':
+            disable = !props.editMode;
             break;
         default:
             disable = false;

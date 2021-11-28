@@ -1,16 +1,29 @@
-.usual {
+.common {
     width: 450px;
     margin: 25px;
     border: 3px solid deepskyblue;
     border-radius: 15px;
+    text-align: center;
+}
+
+.editModeOff {
     font-size: 140px;
     font-weight: bold;
-    text-align: center;
     color: deepskyblue;
 }
 
 .max {
     color: red;
+}
+
+.editModeOn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 186px;
+    font-size: 20px;
+    font-weight: bold;
+    color: deepskyblue;
 }
 
 .buttonsField {

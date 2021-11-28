@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {v1} from 'uuid';
 import './App.css';
 import {Counter} from './components/Counter/Counter';
 import {Settings} from './components/Settings/Settings';
@@ -17,7 +16,11 @@ export type settingsType = {
 }
 
 function App() {
-    const [error, setError] = useState<boolean>(false);
+    const [errorMaxValue, setErrorMaxValue] = useState<boolean>(false);
+    const [errorStartValue, setErrorStartValue] = useState<boolean>(false);
+
+    const [editMode, setEditMode] = useState<boolean>(false)
+
     const [settingParameters, setSettingParameters] = useState<settingsType>(
         {
             max: {
@@ -43,8 +46,16 @@ function App() {
     const newParameterHandler = (type: settingNamesType, newValue: number) => {
         const copySettings = {...settingParameters, [type]:{...settingParameters[type], value:newValue}};
         setSettingParameters(copySettings);
+        setEditMode(true);
     }
     const set = () => alert('Set pressed');
+    // const onErrorHandler = (type:settingNamesType,status: boolean) => {
+    //     const copySettings = {...settingParameters, [type]:{...settingParameters[type], error:status}}
+    //     setSettingParameters(copySettings);
+    // }
+    const onErrorMaxHandler = (status:boolean) => setErrorMaxValue(status);
+    const onErrorStartHandler = (status:boolean) => setErrorStartValue(status);
+
 
     return (
         <div className={'common'}>
@@ -53,7 +64,14 @@ function App() {
                     currentNumber={currentValue}
                     settingParameters={settingParameters}
                     newParameterHandler={newParameterHandler}
+                    // globalError={globalError}
+                    // onErrorHandler={onErrorHandler}
+                    errorMaxValue={errorMaxValue}
+                    errorStartValue={errorStartValue}
+                    onErrorMaxHandler={onErrorMaxHandler}
+                    onErrorStartHandler={onErrorStartHandler}
                     set={set}
+                    editMode={editMode}
                 />
             </div>
             <div className={'frame'}>
@@ -62,6 +80,7 @@ function App() {
                     settingParameters={settingParameters}
                     inc={inc}
                     reset={reset}
+                    editMode={editMode}
                 />
             </div>
         </div>
