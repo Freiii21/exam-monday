@@ -7,6 +7,8 @@ type ButtonsPropsType = {
     onClick: () => void
     settingParameters: settingsType
     editMode: boolean
+    errorMaxValue: boolean
+    errorStartValue: boolean
 }
 
 export const Button = (props: ButtonsPropsType) => {
@@ -23,7 +25,11 @@ export const Button = (props: ButtonsPropsType) => {
             disable = !props.editMode ?  props.currentNumber === props.settingParameters.start.value : true;
             break;
         case 'set':
-            disable = !props.editMode;
+            if(props.editMode){
+                disable = props.errorMaxValue || props.errorStartValue;
+            } else {
+                disable = true
+            }
             break;
         default:
             disable = false;

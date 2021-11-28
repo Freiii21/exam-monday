@@ -73,6 +73,8 @@ export const Settings = (props: SettingsPropsType) => {
                         onClick={props.set}
                         settingParameters={props.settingParameters}
                         editMode={props.editMode}
+                        errorMaxValue={props.errorMaxValue}
+                        errorStartValue={props.errorStartValue}
                 />
             </div>
         </div>

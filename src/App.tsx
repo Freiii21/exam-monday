@@ -48,7 +48,10 @@ function App() {
         setSettingParameters(copySettings);
         setEditMode(true);
     }
-    const set = () => alert('Set pressed');
+    const set = () => {
+        setEditMode(false);
+        setCurrentValue(settingParameters.start.value)
+    };
     // const onErrorHandler = (type:settingNamesType,status: boolean) => {
     //     const copySettings = {...settingParameters, [type]:{...settingParameters[type], error:status}}
     //     setSettingParameters(copySettings);
@@ -81,6 +84,8 @@ function App() {
                     inc={inc}
                     reset={reset}
                     editMode={editMode}
+                    errorMaxValue={errorMaxValue}
+                    errorStartValue={errorStartValue}
                 />
             </div>
         </div>
