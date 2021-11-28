@@ -50,12 +50,11 @@ function App() {
     }
     const set = () => {
         setEditMode(false);
-        setCurrentValue(settingParameters.start.value)
+        setCurrentValue(settingParameters.start.value);
+        localStorage.setItem('counterValues',JSON.stringify(settingParameters.max.value))
+        // save start and max values to Local Storage (describding counter 2:35);
+        // how log get from local storage (2.local storage 10-15)
     };
-    // const onErrorHandler = (type:settingNamesType,status: boolean) => {
-    //     const copySettings = {...settingParameters, [type]:{...settingParameters[type], error:status}}
-    //     setSettingParameters(copySettings);
-    // }
     const onErrorMaxHandler = (status:boolean) => setErrorMaxValue(status);
     const onErrorStartHandler = (status:boolean) => setErrorStartValue(status);
 
