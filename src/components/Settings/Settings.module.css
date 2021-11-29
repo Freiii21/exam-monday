@@ -1,6 +1,6 @@
 .settingsField {
     display: grid;
-    grid-template-rows: 50px 50px;
+    grid-template-rows: 70px 70px;
     height: 186px;
     margin: 25px;
     border: 3px solid deepskyblue;
@@ -13,7 +13,7 @@
 .row {
     display: grid;
     grid-template-columns: 220px 50px;
-    margin-top: 39px;
+    margin-top: 29px;
     margin-left: 24px;
 }
 

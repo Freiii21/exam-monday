@@ -1,10 +1,8 @@
 import s from './Settings.module.css';
-import {ChangeEvent, useState} from 'react';
+import {ChangeEvent} from 'react';
 import {settingNamesType, settingsType} from '../../App';
 
 type SettingsRowPropsType = {
-    // title:string
-    // value:number
     type:settingNamesType
     settingParameters:settingsType
     newParameterHandler:(type:settingNamesType,newValue:number) => void
@@ -12,13 +10,9 @@ type SettingsRowPropsType = {
     errorStartValue: boolean
     onErrorMaxHandler: (status:boolean) => void
     onErrorStartHandler: (status:boolean) => void
-    // globalError: boolean
-    // onErrorHandler: (status:boolean) => void
 }
 
 export const SettingsRow = (props:SettingsRowPropsType) => {
-    // const [localError, setLocalError] = useState<boolean>(false)
-
     const onChangeValue = (e:ChangeEvent<HTMLInputElement>) => {
                 const newValue = Number(e.currentTarget.value);
                 switch (props.type) {
@@ -50,16 +44,7 @@ export const SettingsRow = (props:SettingsRowPropsType) => {
                 }
                 props.newParameterHandler(props.type,newValue);
             };
-    // const determineClass = () => {
-    //     switch (props.type) {
-    //         case 'start':
-    //             return props.errorStartValue ? `${s.input} ${s.error}` : s.input
-    //         case 'max':
-    //             return props.errorMaxValue ? `${s.input} ${s.error}` : s.input
-    //         default:
-    //             return s.input
-    //     }
-    // };
+
     const maxValueClass = props.errorMaxValue ? `${s.input} ${s.error}` : s.input;
     const startValueClass = props.errorStartValue ? `${s.input} ${s.error}` : s.input;
     const inputClass = props.type ==='max' ? maxValueClass : startValueClass;

@@ -14,20 +14,21 @@ type CounterPropsType = {
 
 export const Counter = (props: CounterPropsType) => {
     const editModeOn = props.errorMaxValue || props.errorStartValue ?
-        `${s.common} ${s.editModeOn} ${s.red}` : `${s.common} ${s.editModeOn}`;
+        `${s.editModeOn} ${s.red}` : s.editModeOn;
     const editModeOff = props.currentNumber === props.settingParameters.max.value ?
-        `${s.common} ${s.editModeOff} ${s.red}` : `${s.common} ${s.editModeOff}`;
+        `${s.editModeOff} ${s.red}` : s.editModeOff;
     const counterField = !props.editMode ? editModeOff : editModeOn;
 
     return (
         <div>
-            <div className={counterField}>
-                {!props.editMode ?
+            <div className={s.common}>
+                <div className={counterField}>
+                    {!props.editMode ?
                     props.currentNumber
                     : props.errorMaxValue || props.errorStartValue ?
-                        "Incorrect value!"
-                        : "enter values and press 'set'"
-                }
+                        'Incorrect value!'
+                        : 'enter values and press \'set\''
+                }</div>
             </div>
             <div className={s.buttonsField}>
                 <Button title={'inc'}
@@ -37,7 +38,6 @@ export const Counter = (props: CounterPropsType) => {
                         editMode={props.editMode}
                         errorMaxValue={props.errorMaxValue}
                         errorStartValue={props.errorStartValue}
-                    // disable 'set' button until an error in an input field will be fixed
                 />
                 <Button title={'reset'}
                         currentNumber={props.currentNumber}
