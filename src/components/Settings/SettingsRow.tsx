@@ -13,6 +13,7 @@ type SettingsRowPropsType = {
 }
 
 export const SettingsRow = (props:SettingsRowPropsType) => {
+    const handleFocus = (e:ChangeEvent<HTMLInputElement>) => e.currentTarget.select();
     const onChangeValue = (e:ChangeEvent<HTMLInputElement>) => {
                 const newValue = Number(e.currentTarget.value);
                 switch (props.type) {
@@ -59,7 +60,9 @@ export const SettingsRow = (props:SettingsRowPropsType) => {
                     type="number"
                     value={props.settingParameters[props.type].value}
                     onChange={onChangeValue}
-                    className={inputClass}/>
+                    className={inputClass}
+                    onFocus={handleFocus}
+                />
             </div>
         </div>
     )
