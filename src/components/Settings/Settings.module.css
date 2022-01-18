@@ -19,7 +19,7 @@
 
 .input {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     width: 170px;
     height: 30px;
     margin-top: 10px;
