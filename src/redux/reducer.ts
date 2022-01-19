@@ -12,8 +12,6 @@ export type settingsType = {
 export type SettingsStateType = {
     currentNumber: number
     settingParameters: settingsType
-    // errorMaxValue: boolean
-    // errorStartValue: boolean
     editMode: boolean
 }
 
@@ -29,8 +27,6 @@ const initialState: SettingsStateType = {
             value: 0,
         }
     },
-    // errorMaxValue: false,
-    // errorStartValue: false,
     editMode: false
 };
 type ActionsType = IncCounterAT | ResetCounterAT | SetSettingsAT | SetNewValueAT | SetSettingsFromLocalStorageAT;

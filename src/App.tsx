@@ -8,81 +8,32 @@ import {
     incCounterAC,
     resetCounterAC,
     setNewSettings,
-    setNewValueAC,
+    setNewValueAC, settingNamesType,
     settingsType
 } from './redux/reducer';
 import {AppRootStateType} from './redux/store';
 
-// export type settingNamesType = "max" | "start"
-/*export type settingType = {
-    title: string
-    value: number
-}
-export type settingsType = {
-    max: settingType
-    start: settingType
-}*/
 
 function App() {
     const dispatch = useDispatch();
     const settingParameters = useSelector<AppRootStateType, settingsType>(state => state.counter.settingParameters)
-    // const errorMaxValue = useSelector<AppRootStateType, boolean>(state => state.counter.errorMaxValue)
-    // const errorStartValue = useSelector<AppRootStateType, boolean>(state => state.counter.errorStartValue)
     const editMode = useSelector<AppRootStateType, boolean>(state => state.counter.editMode)
     const currentValue = useSelector<AppRootStateType, number>(state => state.counter.currentNumber)
 
-    const [errorMaxValue, setErrorMaxValue] = useState<boolean>(false);
-    const [errorStartValue, setErrorStartValue] = useState<boolean>(false);
-    // const [editMode, setEditMode] = useState<boolean>(false)
-/*    const [settingParameters, setSettingParameters] = useState<settingsType>(
-        {
-            max: {
-                title:"max value:",
-                value:5,
-            },
-            start: {
-                title:"start value:",
-                value:0,
-            },
-        }
-    )*/
-    // const [currentValue, setCurrentValue] = useState<number>(settingParameters.start.value);
-
-    // Automatic save values to Local Storage after changing 'settingParameters';
-    // In such case it`s not necessary to press the 'Set' button;
-    // useEffect(() => {
-    //     localStorage.setItem('counterValues',JSON.stringify(settingParameters))
-    // },[settingParameters])
+    const onErrorMaxHandler = (status:boolean) => setErrorMaxValue(status);
+    const onErrorStartHandler = (status:boolean) => setErrorStartValue(status);
 
     useEffect(() => {
         dispatch(getSettingsFromLocalStorage())
     },[])
 
-/*    const inc = () => {
-        if (currentValue < settingParameters.max.value) {
-            let newNum = currentValue + 1;
-            setCurrentValue(newNum);
-        }
-    }*/
-    // const reset = () => setCurrentValue(settingParameters.start.value);
-    // const newParameterHandler = (valueType: "max" | "start", newValue: number) => {
-    //     const copySettings = {...settingParameters, [valueType]:{...settingParameters[valueType], value:newValue}};
-    //     setSettingParameters(copySettings);
-    //     setEditMode(true);
-    // }
-/*    const set = () => {
-        setEditMode(false);
-        setCurrentValue(settingParameters.start.value);
-        localStorage.setItem('counterValues',JSON.stringify(settingParameters));
-    };*/
-    const onErrorMaxHandler = (status:boolean) => setErrorMaxValue(status);
-    const onErrorStartHandler = (status:boolean) => setErrorStartValue(status);
-
+    const [errorMaxValue, setErrorMaxValue] = useState<boolean>(false);
+    const [errorStartValue, setErrorStartValue] = useState<boolean>(false);
 
     const onInc = () => dispatch(incCounterAC());
     const onReset = () => dispatch(resetCounterAC());
     const onSet = () => dispatch(setNewSettings(settingParameters));
-    const onNewValue = (valueType: "max" | "start", newValue: number) => dispatch(setNewValueAC(valueType, newValue));
+    const onNewValue = (valueType: settingNamesType, newValue: number) => dispatch(setNewValueAC(valueType, newValue));
 
     return (
         <div className={'common'}>
