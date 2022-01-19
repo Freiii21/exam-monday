@@ -1,5 +1,6 @@
 import s from './Button.module.css'
-import {settingsType} from '../../App';
+import {settingsType} from '../../redux/reducer';
+
 
 type ButtonsPropsType = {
     title: string

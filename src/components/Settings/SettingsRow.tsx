@@ -1,6 +1,7 @@
 import s from './Settings.module.css';
 import {ChangeEvent} from 'react';
-import {settingNamesType, settingsType} from '../../App';
+import {settingNamesType, settingsType} from '../../redux/reducer';
+
 
 type SettingsRowPropsType = {
     type:settingNamesType

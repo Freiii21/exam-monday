@@ -1,7 +1,7 @@
 import s from './Settings.module.css'
 import {Button} from '../Button/Button';
-import {settingNamesType, settingsType} from '../../App';
 import {SettingsRow} from './SettingsRow';
+import {settingNamesType, settingsType} from '../../redux/reducer';
 
 type SettingsPropsType = {
     currentNumber: number

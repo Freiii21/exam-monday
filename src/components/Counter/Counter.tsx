@@ -1,6 +1,6 @@
 import s from './Counter.module.css'
-import {settingsType} from '../../App';
 import {Button} from '../Button/Button';
+import {settingsType} from '../../redux/reducer';
 
 type CounterPropsType = {
     currentNumber: number

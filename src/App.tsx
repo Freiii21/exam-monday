@@ -3,10 +3,17 @@ import './App.css';
 import {Counter} from './components/Counter/Counter';
 import {Settings} from './components/Settings/Settings';
 import {useDispatch, useSelector} from 'react-redux';
-import {incCounterAC, resetCounterAC, setNewSettings, settingsType} from './redux/reducer';
+import {
+    getSettingsFromLocalStorage,
+    incCounterAC,
+    resetCounterAC,
+    setNewSettings,
+    setNewValueAC,
+    settingsType
+} from './redux/reducer';
 import {AppRootStateType} from './redux/store';
 
-export type settingNamesType = "max" | "start"
+// export type settingNamesType = "max" | "start"
 /*export type settingType = {
     title: string
     value: number
@@ -19,13 +26,13 @@ export type settingsType = {
 function App() {
     const dispatch = useDispatch();
     const settingParameters = useSelector<AppRootStateType, settingsType>(state => state.counter.settingParameters)
-    const errorMaxValue = useSelector<AppRootStateType, boolean>(state => state.counter.errorMaxValue)
-    const errorStartValue = useSelector<AppRootStateType, boolean>(state => state.counter.errorStartValue)
+    // const errorMaxValue = useSelector<AppRootStateType, boolean>(state => state.counter.errorMaxValue)
+    // const errorStartValue = useSelector<AppRootStateType, boolean>(state => state.counter.errorStartValue)
     const editMode = useSelector<AppRootStateType, boolean>(state => state.counter.editMode)
     const currentValue = useSelector<AppRootStateType, number>(state => state.counter.currentNumber)
 
-    // const [errorMaxValue, setErrorMaxValue] = useState<boolean>(false);
-    // const [errorStartValue, setErrorStartValue] = useState<boolean>(false);
+    const [errorMaxValue, setErrorMaxValue] = useState<boolean>(false);
+    const [errorStartValue, setErrorStartValue] = useState<boolean>(false);
     // const [editMode, setEditMode] = useState<boolean>(false)
 /*    const [settingParameters, setSettingParameters] = useState<settingsType>(
         {
@@ -48,13 +55,9 @@ function App() {
     // },[settingParameters])
 
     useEffect(() => {
-        const valueFromLocalStorage = localStorage.getItem('counterValues');
-        if(valueFromLocalStorage){
-            const initialSettings = JSON.parse(valueFromLocalStorage);
-            setSettingParameters(initialSettings);
-            setCurrentValue(initialSettings.start.value)
-        }
+        dispatch(getSettingsFromLocalStorage())
     },[])
+
 /*    const inc = () => {
         if (currentValue < settingParameters.max.value) {
             let newNum = currentValue + 1;
@@ -62,11 +65,11 @@ function App() {
         }
     }*/
     // const reset = () => setCurrentValue(settingParameters.start.value);
-    const newParameterHandler = (type: settingNamesType, newValue: number) => {
-        const copySettings = {...settingParameters, [type]:{...settingParameters[type], value:newValue}};
-        setSettingParameters(copySettings);
-        setEditMode(true);
-    }
+    // const newParameterHandler = (valueType: "max" | "start", newValue: number) => {
+    //     const copySettings = {...settingParameters, [valueType]:{...settingParameters[valueType], value:newValue}};
+    //     setSettingParameters(copySettings);
+    //     setEditMode(true);
+    // }
 /*    const set = () => {
         setEditMode(false);
         setCurrentValue(settingParameters.start.value);
@@ -78,7 +81,8 @@ function App() {
 
     const onInc = () => dispatch(incCounterAC());
     const onReset = () => dispatch(resetCounterAC());
-    const onSet = () => dispatch(setNewSettings(settingParameters))
+    const onSet = () => dispatch(setNewSettings(settingParameters));
+    const onNewValue = (valueType: "max" | "start", newValue: number) => dispatch(setNewValueAC(valueType, newValue));
 
     return (
         <div className={'common'}>
@@ -86,7 +90,7 @@ function App() {
                 <Settings
                     currentNumber={currentValue}
                     settingParameters={settingParameters}
-                    newParameterHandler={newParameterHandler}
+                    newParameterHandler={onNewValue}
                     errorMaxValue={errorMaxValue}
                     errorStartValue={errorStartValue}
                     onErrorMaxHandler={onErrorMaxHandler}
