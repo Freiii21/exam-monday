@@ -7,9 +7,23 @@ const rootReducer = combineReducers({
     counter: Reducer
 })
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+/*
+let preloadedState;
+const persistedCounterString = localStorage.getItem('counterValues')
+if (persistedCounterString){
+    preloadedState = JSON.parse(persistedCounterString)
+}
+*/
 
+export const store = createStore(rootReducer, applyMiddleware(thunk));
 export type AppRootStateType = ReturnType<typeof rootReducer>
+
+
+
+// store.subscribe(() => {
+//     localStorage.setItem('counterValues', JSON.stringify(store.getState().counter.settingParameters))
+// })
+
 
 
 //@ts-ignore
