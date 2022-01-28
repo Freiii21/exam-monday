@@ -11,6 +11,7 @@ type SettingsRowPropsType = {
     errorStartValue: boolean
     onErrorMaxHandler: (status:boolean) => void
     onErrorStartHandler: (status:boolean) => void
+    colorScheme: string
 }
 
 export const SettingsRow = (props:SettingsRowPropsType) => {
@@ -61,8 +62,9 @@ export const SettingsRow = (props:SettingsRowPropsType) => {
                     type="number"
                     value={props.settingParameters[props.type].value}
                     onChange={onChangeValue}
-                    className={inputClass}
                     onFocus={handleFocus}
+                    className={inputClass}
+                    style={{borderColor:props.colorScheme}}
                 />
             </div>
         </div>

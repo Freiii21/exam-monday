@@ -14,10 +14,10 @@ if (persistedCounterString){
     preloadedState = JSON.parse(persistedCounterString)
 }
 */
+// export const store = createStore(rootReducer, preloadedState, applyMiddleware(thunk));
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
 export type AppRootStateType = ReturnType<typeof rootReducer>
-
 
 
 // store.subscribe(() => {

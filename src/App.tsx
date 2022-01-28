@@ -19,6 +19,7 @@ function App() {
     const settingParameters = useSelector<AppRootStateType, settingsType>(state => state.counter.settingParameters)
     const editMode = useSelector<AppRootStateType, boolean>(state => state.counter.editMode)
     const currentValue = useSelector<AppRootStateType, number>(state => state.counter.currentNumber)
+    const colorScheme = useSelector<AppRootStateType, string>(state => state.counter.colorScheme)
 
     const onErrorMaxHandler = (status:boolean) => setErrorMaxValue(status);
     const onErrorStartHandler = (status:boolean) => setErrorStartValue(status);
@@ -37,7 +38,7 @@ function App() {
 
     return (
         <div className={'common'}>
-            <div className={'frame'}>
+            <div className={'frame'} style={{borderColor:colorScheme}}>
                 <Settings
                     currentNumber={currentValue}
                     settingParameters={settingParameters}
@@ -48,9 +49,10 @@ function App() {
                     onErrorStartHandler={onErrorStartHandler}
                     set={onSet}
                     editMode={editMode}
+                    colorScheme={colorScheme}
                 />
             </div>
-            <div className={'frame'}>
+            <div className={'frame'} style={{borderColor:colorScheme}}>
                 <Counter
                     currentNumber={currentValue}
                     settingParameters={settingParameters}
@@ -59,6 +61,7 @@ function App() {
                     editMode={editMode}
                     errorMaxValue={errorMaxValue}
                     errorStartValue={errorStartValue}
+                    colorScheme={colorScheme}
                 />
             </div>
         </div>

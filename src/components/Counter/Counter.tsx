@@ -10,6 +10,7 @@ type CounterPropsType = {
     editMode: boolean
     errorMaxValue: boolean
     errorStartValue: boolean
+    colorScheme: string
 }
 
 export const Counter = (props: CounterPropsType) => {
@@ -21,8 +22,8 @@ export const Counter = (props: CounterPropsType) => {
 
     return (
         <div>
-            <div className={s.common}>
-                <div className={counterField}>
+            <div className={s.common} style={{borderColor:props.colorScheme}}>
+                <div className={counterField} style={{color:props.colorScheme}}>
                     {!props.editMode ?
                     props.currentNumber
                     : props.errorMaxValue || props.errorStartValue ?
@@ -30,7 +31,7 @@ export const Counter = (props: CounterPropsType) => {
                         : 'enter values and press \'set\''
                 }</div>
             </div>
-            <div className={s.buttonsField}>
+            <div className={s.buttonsField} style={{borderColor:props.colorScheme}}>
                 <Button title={'inc'}
                         currentNumber={props.currentNumber}
                         onClick={props.inc}
@@ -38,6 +39,7 @@ export const Counter = (props: CounterPropsType) => {
                         editMode={props.editMode}
                         errorMaxValue={props.errorMaxValue}
                         errorStartValue={props.errorStartValue}
+                        colorScheme={props.colorScheme}
                 />
                 <Button title={'reset'}
                         currentNumber={props.currentNumber}
@@ -46,6 +48,7 @@ export const Counter = (props: CounterPropsType) => {
                         editMode={props.editMode}
                         errorMaxValue={props.errorMaxValue}
                         errorStartValue={props.errorStartValue}
+                        colorScheme={props.colorScheme}
                 />
             </div>
         </div>

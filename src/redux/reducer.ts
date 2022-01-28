@@ -13,6 +13,7 @@ export type SettingsStateType = {
     currentNumber: number
     settingParameters: settingsType
     editMode: boolean
+    colorScheme: string
 }
 
 const initialState: SettingsStateType = {
@@ -27,7 +28,8 @@ const initialState: SettingsStateType = {
             value: 0,
         }
     },
-    editMode: false
+    editMode: false,
+    colorScheme: "green"
 };
 type ActionsType = IncCounterAT | ResetCounterAT | SetSettingsAT | SetNewValueAT | SetSettingsFromLocalStorageAT;
 

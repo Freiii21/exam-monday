@@ -10,6 +10,7 @@ type ButtonsPropsType = {
     editMode: boolean
     errorMaxValue: boolean
     errorStartValue: boolean
+    colorScheme: string
 }
 
 export const Button = (props: ButtonsPropsType) => {
@@ -40,7 +41,11 @@ export const Button = (props: ButtonsPropsType) => {
     const buttonClass = disable ? `${usualClass} ${s.disabled}` : usualClass;
 
     return (
-        <button className={buttonClass} onClick={onClickHandler} disabled={disable}>
+        <button className={buttonClass}
+                onClick={onClickHandler}
+                disabled={disable}
+                style={{backgroundColor:props.colorScheme}}
+        >
             {props.title}
         </button>
     )

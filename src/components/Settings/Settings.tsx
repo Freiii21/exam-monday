@@ -13,12 +13,13 @@ type SettingsPropsType = {
     onErrorStartHandler: (status:boolean) => void
     set: () => void
     editMode: boolean
+    colorScheme: string
 }
 
 export const Settings = (props: SettingsPropsType) => {
     return (
         <div>
-            <div className={s.settingsField}>
+            <div className={s.settingsField} style={{borderColor:props.colorScheme,color:props.colorScheme}}>
                 <SettingsRow
                     type={'max'}
                     settingParameters={props.settingParameters}
@@ -27,6 +28,7 @@ export const Settings = (props: SettingsPropsType) => {
                     errorStartValue={props.errorStartValue}
                     onErrorMaxHandler={props.onErrorMaxHandler}
                     onErrorStartHandler={props.onErrorStartHandler}
+                    colorScheme={props.colorScheme}
                 />
                 <SettingsRow
                     type={'start'}
@@ -36,9 +38,10 @@ export const Settings = (props: SettingsPropsType) => {
                     errorStartValue={props.errorStartValue}
                     onErrorMaxHandler={props.onErrorMaxHandler}
                     onErrorStartHandler={props.onErrorStartHandler}
+                    colorScheme={props.colorScheme}
                 />
             </div>
-            <div className={s.buttonField}>
+            <div className={s.buttonField} style={{borderColor:props.colorScheme}}>
                 <Button title={'set'}
                         currentNumber={props.currentNumber}
                         onClick={props.set}
@@ -46,6 +49,7 @@ export const Settings = (props: SettingsPropsType) => {
                         editMode={props.editMode}
                         errorMaxValue={props.errorMaxValue}
                         errorStartValue={props.errorStartValue}
+                        colorScheme={props.colorScheme}
                 />
             </div>
         </div>
