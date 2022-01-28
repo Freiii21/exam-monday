@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {
     getSettingsFromLocalStorage,
     incCounterAC,
-    resetCounterAC,
+    resetCounterAC, setColorAC,
     setNewSettings,
     setNewValueAC, settingNamesType,
     settingsType
@@ -35,6 +35,7 @@ function App() {
     const onReset = () => dispatch(resetCounterAC());
     const onSet = () => dispatch(setNewSettings(settingParameters));
     const onNewValue = (valueType: settingNamesType, newValue: number) => dispatch(setNewValueAC(valueType, newValue));
+    const setColor = (color: string) => dispatch(setColorAC(color));
 
     return (
         <div className={'common'}>
@@ -50,6 +51,7 @@ function App() {
                     set={onSet}
                     editMode={editMode}
                     colorScheme={colorScheme}
+                    setColor={setColor}
                 />
             </div>
             <div className={'frame'} style={{borderColor:colorScheme}}>

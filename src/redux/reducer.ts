@@ -29,9 +29,10 @@ const initialState: SettingsStateType = {
         }
     },
     editMode: false,
-    colorScheme: "green"
+    colorScheme: ""
 };
-type ActionsType = IncCounterAT | ResetCounterAT | SetSettingsAT | SetNewValueAT | SetSettingsFromLocalStorageAT;
+type ActionsType = IncCounterAT | ResetCounterAT | SetSettingsAT | SetNewValueAT | SetSettingsFromLocalStorageAT
+    | SetColorAT;
 
 export const Reducer = (state: SettingsStateType = initialState, action: ActionsType): SettingsStateType => {
     switch (action.type) {
@@ -73,6 +74,11 @@ export const Reducer = (state: SettingsStateType = initialState, action: Actions
                 settingParameters: action.settingsFromLS,
                 currentNumber: action.settingsFromLS.start.value
             }
+        case 'SET_COLOR':
+            return {
+                ...state,
+                colorScheme: action.color
+            }
         default:
             return state;
     }
@@ -96,6 +102,10 @@ type SetSettingsFromLocalStorageAT = {
     type: 'SET_SETTINGS_FROM_LS'
     settingsFromLS: settingsType
 }
+type SetColorAT = {
+    type: 'SET_COLOR'
+    color: string
+}
 
 export const incCounterAC = (): IncCounterAT => ({type: 'INC_COUNTER'});
 export const resetCounterAC = (): ResetCounterAT => ({type: 'RESET_COUNTER'});
@@ -111,6 +121,12 @@ export const setSettingFromLocalStorageAC = (settingsFromLS: settingsType): SetS
     return {
         type: 'SET_SETTINGS_FROM_LS',
         settingsFromLS
+    }
+}
+export const setColorAC = (color: string): SetColorAT => {
+    return {
+        type: 'SET_COLOR',
+        color
     }
 }
 

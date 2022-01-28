@@ -1,6 +1,6 @@
 .settingsField {
     display: grid;
-    grid-template-rows: 70px 70px;
+    grid-template-rows: 55px 55px 55px;
     height: 186px;
     margin: 25px;
     border: 3px solid deepskyblue;
@@ -13,7 +13,7 @@
 .row {
     display: grid;
     grid-template-columns: 220px 50px;
-    margin-top: 29px;
+    margin-top: 10px;
     margin-left: 24px;
 }
 
@@ -44,4 +44,18 @@
     margin-bottom: 25px;
     border: 3px solid deepskyblue;
     border-radius: 15px;
+}
+
+.colorSet {
+    margin-top: 5px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+}
+.colorSet img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-right: 7.5px;
+    margin-top: 2px;
 }

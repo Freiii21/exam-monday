@@ -2,6 +2,14 @@ import s from './Settings.module.css'
 import {Button} from '../Button/Button';
 import {SettingsRow} from './SettingsRow';
 import {settingNamesType, settingsType} from '../../redux/reducer';
+import lightpink from './../assets/pink.png'
+import deepskyblue from './../assets/deepskyblue.png'
+import aquamarine from './../assets/aquamarine.png'
+import darkgrey from './../assets/darkgrey.png'
+import orange from './../assets/orange.png'
+
+
+
 
 type SettingsPropsType = {
     currentNumber: number
@@ -14,6 +22,7 @@ type SettingsPropsType = {
     set: () => void
     editMode: boolean
     colorScheme: string
+    setColor: (color:string) => void
 }
 
 export const Settings = (props: SettingsPropsType) => {
@@ -40,6 +49,18 @@ export const Settings = (props: SettingsPropsType) => {
                     onErrorStartHandler={props.onErrorStartHandler}
                     colorScheme={props.colorScheme}
                 />
+                <div className={s.row}>
+                    <div>
+                        <span>color:</span>
+                    </div>
+                    <div className={s.colorSet}>
+                        <img src={deepskyblue} onClick={() => props.setColor("deepskyblue")}/>
+                        <img src={lightpink} onClick={() => props.setColor("lightpink")}/>
+                        <img src={aquamarine} onClick={() => props.setColor("aquamarine")}/>
+                        <img src={darkgrey} onClick={() => props.setColor("darkgrey")}/>
+                        <img src={orange} onClick={() => props.setColor("orange")}/>
+                    </div>
+                </div>
             </div>
             <div className={s.buttonField} style={{borderColor:props.colorScheme}}>
                 <Button title={'set'}
