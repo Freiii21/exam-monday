@@ -33,7 +33,7 @@ function App() {
 
     const onInc = () => dispatch(incCounterAC());
     const onReset = () => dispatch(resetCounterAC());
-    const onSet = () => dispatch(setNewSettings(settingParameters));
+    const onSet = () => dispatch(setNewSettings(settingParameters, colorScheme));
     const onNewValue = (valueType: settingNamesType, newValue: number) => dispatch(setNewValueAC(valueType, newValue));
     const setColor = (color: string) => dispatch(setColorAC(color));
 

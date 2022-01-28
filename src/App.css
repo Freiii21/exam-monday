@@ -13,4 +13,5 @@
   border-radius: 15px;
   display: grid;
   grid-template-rows: 250px 100px;
+  background-color: rgba(117, 190, 218, 0.1);
 }

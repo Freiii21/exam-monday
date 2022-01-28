@@ -77,7 +77,8 @@ export const Reducer = (state: SettingsStateType = initialState, action: Actions
         case 'SET_COLOR':
             return {
                 ...state,
-                colorScheme: action.color
+                colorScheme: action.color,
+                editMode: true
             }
         default:
             return state;
@@ -130,18 +131,25 @@ export const setColorAC = (color: string): SetColorAT => {
     }
 }
 
-export const setNewSettings = (settingParameters: settingsType) => {
+export const setNewSettings = (settingParameters: settingsType, colorScheme: string) => {
     return (dispatch: Dispatch) => {
         localStorage.setItem('counterValues', JSON.stringify(settingParameters))
+        localStorage.setItem('colorSchema', JSON.stringify(colorScheme))
         dispatch(setSettingsAC());
     }
 }
 export const getSettingsFromLocalStorage = () => {
     return (dispatch: Dispatch) => {
         const valueFromLocalStorage = localStorage.getItem('counterValues');
+        const colorFromLocalStorage = localStorage.getItem('colorSchema');
         if(valueFromLocalStorage){
             const initialSettings = JSON.parse(valueFromLocalStorage);
             dispatch(setSettingFromLocalStorageAC(initialSettings));
+        }
+        if(colorFromLocalStorage){
+            const initialColor = JSON.parse(colorFromLocalStorage);
+            dispatch(setColorAC(initialColor));
+            dispatch(setSettingsAC());
         }
     }
 }

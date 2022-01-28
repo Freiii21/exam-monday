@@ -2,14 +2,11 @@ import s from './Settings.module.css'
 import {Button} from '../Button/Button';
 import {SettingsRow} from './SettingsRow';
 import {settingNamesType, settingsType} from '../../redux/reducer';
-import lightpink from './../assets/pink.png'
 import deepskyblue from './../assets/deepskyblue.png'
-import aquamarine from './../assets/aquamarine.png'
-import darkgrey from './../assets/darkgrey.png'
-import orange from './../assets/orange.png'
-
-
-
+import dimGrey from './../assets/dimGrey.png'
+import gold from './../assets/gold.png'
+import mediumSlateBlue from './../assets/mediumSlateBlue.png'
+import darkGreen from './../assets/darkGreen.png'
 
 type SettingsPropsType = {
     currentNumber: number
@@ -55,10 +52,10 @@ export const Settings = (props: SettingsPropsType) => {
                     </div>
                     <div className={s.colorSet}>
                         <img src={deepskyblue} onClick={() => props.setColor("deepskyblue")}/>
-                        <img src={lightpink} onClick={() => props.setColor("lightpink")}/>
-                        <img src={aquamarine} onClick={() => props.setColor("aquamarine")}/>
-                        <img src={darkgrey} onClick={() => props.setColor("darkgrey")}/>
-                        <img src={orange} onClick={() => props.setColor("orange")}/>
+                        <img src={dimGrey} onClick={() => props.setColor("dimGrey")}/>
+                        <img src={gold} onClick={() => props.setColor("gold")}/>
+                        <img src={mediumSlateBlue} onClick={() => props.setColor("mediumSlateBlue")}/>
+                        <img src={darkGreen} onClick={() => props.setColor("darkGreen")}/>
                     </div>
                 </div>
             </div>
