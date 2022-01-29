@@ -5,6 +5,8 @@
 .greyBack {
     background-color: dimGrey !important;
 }
+
+
 .orange {
     border-color: Orange !important;
     color: Orange !important;
@@ -12,6 +14,8 @@
 .orangeBack {
     background-color: Orange !important;
 }
+
+
 .purple {
     border-color: mediumSlateBlue !important;
     color: mediumSlateBlue !important;
@@ -19,6 +23,8 @@
 .purpleBack {
     background-color: mediumSlateBlue !important;
 }
+
+
 .green {
     border-color: darkGreen !important;
     color: darkGreen !important;

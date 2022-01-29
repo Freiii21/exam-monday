@@ -1,17 +1,22 @@
 .common {
-  display: grid;
-  grid-template-columns: 500px 500px;
-  grid-gap: 100px;
-  width: 1100px;
-  margin: auto;
+  /*display: grid;*/
+  /*grid-template-columns: 500px 500px;*/
+  /*grid-gap: 100px;*/
+  /*width: 1100px;*/
+  /*margin: auto;*/
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
 }
 .frame {
   width: 506px;
   height: 350px;
-  margin: 150px auto auto;
+  margin: 0 50px;
   border: 3px solid deepskyblue;
   border-radius: 15px;
   display: grid;
   grid-template-rows: 250px 100px;
-  background-color: rgba(117, 190, 218, 0.1);
+  background-color: rgba(117, 190, 218, 0.2);
 }
