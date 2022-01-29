@@ -1,7 +1,7 @@
 import s from './Settings.module.css';
 import {ChangeEvent} from 'react';
 import {settingNamesType, settingsType} from '../../redux/reducer';
-
+import cs from './../common/colorScheme.module.css'
 
 type SettingsRowPropsType = {
     type:settingNamesType
@@ -48,8 +48,8 @@ export const SettingsRow = (props:SettingsRowPropsType) => {
                 props.newParameterHandler(props.type,newValue);
             };
 
-    const maxValueClass = props.errorMaxValue ? `${s.input} ${s.error}` : s.input;
-    const startValueClass = props.errorStartValue ? `${s.input} ${s.error}` : s.input;
+    const maxValueClass = props.errorMaxValue ? `${s.input} ${s.error}` : `${s.input} ${cs[props.colorScheme]}`;
+    const startValueClass = props.errorStartValue ? `${s.input} ${s.error}` : `${s.input} ${cs[props.colorScheme]}`;
     const inputClass = props.type ==='max' ? maxValueClass : startValueClass;
 
     return (
@@ -64,7 +64,6 @@ export const SettingsRow = (props:SettingsRowPropsType) => {
                     onChange={onChangeValue}
                     onFocus={handleFocus}
                     className={inputClass}
-                    style={{borderColor:props.colorScheme}}
                 />
             </div>
         </div>

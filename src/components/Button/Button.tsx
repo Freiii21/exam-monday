@@ -1,6 +1,6 @@
 import s from './Button.module.css'
 import {settingsType} from '../../redux/reducer';
-
+import cs from './../common/colorScheme.module.css'
 
 type ButtonsPropsType = {
     title: string
@@ -37,14 +37,14 @@ export const Button = (props: ButtonsPropsType) => {
             disable = false;
             break;
     }
-    const usualClass = props.title === 'set' ? `${s.usual} ${s.singleButton}` : s.usual;
+    const colorScheme = props.colorScheme+"Back";
+    const usualClass = props.title === 'set' ? `${s.usual} ${s.singleButton} ${cs[colorScheme]}` : `${s.usual} ${cs[colorScheme]}`;
     const buttonClass = disable ? `${usualClass} ${s.disabled}` : usualClass;
 
     return (
         <button className={buttonClass}
                 onClick={onClickHandler}
                 disabled={disable}
-                style={{backgroundColor:props.colorScheme}}
         >
             {props.title}
         </button>

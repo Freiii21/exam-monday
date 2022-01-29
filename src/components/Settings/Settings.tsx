@@ -4,9 +4,10 @@ import {SettingsRow} from './SettingsRow';
 import {settingNamesType, settingsType} from '../../redux/reducer';
 import deepskyblue from './../assets/deepskyblue.png'
 import dimGrey from './../assets/dimGrey.png'
-import gold from './../assets/gold.png'
+import orange from './../assets/orange.png'
 import mediumSlateBlue from './../assets/mediumSlateBlue.png'
 import darkGreen from './../assets/darkGreen.png'
+import cs from './../common/colorScheme.module.css'
 
 type SettingsPropsType = {
     currentNumber: number
@@ -25,7 +26,7 @@ type SettingsPropsType = {
 export const Settings = (props: SettingsPropsType) => {
     return (
         <div>
-            <div className={s.settingsField} style={{borderColor:props.colorScheme,color:props.colorScheme}}>
+            <div className={`${s.settingsField} ${cs[props.colorScheme]}`}>
                 <SettingsRow
                     type={'max'}
                     settingParameters={props.settingParameters}
@@ -51,15 +52,15 @@ export const Settings = (props: SettingsPropsType) => {
                         <span>color:</span>
                     </div>
                     <div className={s.colorSet}>
-                        <img src={deepskyblue} onClick={() => props.setColor("deepskyblue")}/>
-                        <img src={dimGrey} onClick={() => props.setColor("dimGrey")}/>
-                        <img src={gold} onClick={() => props.setColor("gold")}/>
-                        <img src={mediumSlateBlue} onClick={() => props.setColor("mediumSlateBlue")}/>
-                        <img src={darkGreen} onClick={() => props.setColor("darkGreen")}/>
+                        <img src={deepskyblue} onClick={() => props.setColor("")} alt="color"/>
+                        <img src={dimGrey} onClick={() => props.setColor("grey")} alt="color"/>
+                        <img src={orange} onClick={() => props.setColor("orange")} alt="color"/>
+                        <img src={mediumSlateBlue} onClick={() => props.setColor("purple")} alt="color"/>
+                        <img src={darkGreen} onClick={() => props.setColor("green")} alt="color"/>
                     </div>
                 </div>
             </div>
-            <div className={s.buttonField} style={{borderColor:props.colorScheme}}>
+            <div className={`${s.buttonField} ${cs[props.colorScheme]}`}>
                 <Button title={'set'}
                         currentNumber={props.currentNumber}
                         onClick={props.set}

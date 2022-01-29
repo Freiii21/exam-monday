@@ -12,6 +12,7 @@ import {
     settingsType
 } from './redux/reducer';
 import {AppRootStateType} from './redux/store';
+import cs from './components/common/colorScheme.module.css'
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
 
     useEffect(() => {
         dispatch(getSettingsFromLocalStorage())
-    },[])
+    },[dispatch])
 
     const [errorMaxValue, setErrorMaxValue] = useState<boolean>(false);
     const [errorStartValue, setErrorStartValue] = useState<boolean>(false);
@@ -39,7 +40,7 @@ function App() {
 
     return (
         <div className={'common'}>
-            <div className={'frame'} style={{borderColor:colorScheme}}>
+            <div className={`${'frame'} ${cs[colorScheme]}`}>
                 <Settings
                     currentNumber={currentValue}
                     settingParameters={settingParameters}
@@ -54,7 +55,7 @@ function App() {
                     setColor={setColor}
                 />
             </div>
-            <div className={'frame'} style={{borderColor:colorScheme}}>
+            <div className={`${'frame'} ${cs[colorScheme]}`}>
                 <Counter
                     currentNumber={currentValue}
                     settingParameters={settingParameters}

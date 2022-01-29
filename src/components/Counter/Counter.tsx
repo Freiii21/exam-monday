@@ -1,6 +1,7 @@
 import s from './Counter.module.css'
 import {Button} from '../Button/Button';
 import {settingsType} from '../../redux/reducer';
+import cs from './../common/colorScheme.module.css'
 
 type CounterPropsType = {
     currentNumber: number
@@ -15,15 +16,16 @@ type CounterPropsType = {
 
 export const Counter = (props: CounterPropsType) => {
     const editModeOn = props.errorMaxValue || props.errorStartValue ?
-        `${s.editModeOn} ${s.red}` : s.editModeOn;
+        `${s.editModeOn} ${s.red}` : `${s.editModeOn} ${cs[props.colorScheme]}`;
     const editModeOff = props.currentNumber === props.settingParameters.max.value ?
-        `${s.editModeOff} ${s.red}` : s.editModeOff;
+        `${s.editModeOff} ${s.red}` : `${s.editModeOff} ${cs[props.colorScheme]}`;
     const counterField = !props.editMode ? editModeOff : editModeOn;
 
     return (
         <div>
-            <div className={s.common} style={{borderColor:props.colorScheme}}>
-                <div className={counterField} style={{color:props.colorScheme}}>
+            <div className={`${s.common} ${cs[props.colorScheme]}`}>
+                {/*<div className={counterField} style={{color:props.colorScheme}}>*/}
+                <div className={counterField}>
                     {!props.editMode ?
                     props.currentNumber
                     : props.errorMaxValue || props.errorStartValue ?
@@ -31,7 +33,7 @@ export const Counter = (props: CounterPropsType) => {
                         : 'enter values and press \'set\''
                 }</div>
             </div>
-            <div className={s.buttonsField} style={{borderColor:props.colorScheme}}>
+            <div className={`${s.buttonsField} ${cs[props.colorScheme]}`}>
                 <Button title={'inc'}
                         currentNumber={props.currentNumber}
                         onClick={props.inc}
