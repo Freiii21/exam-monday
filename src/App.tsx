@@ -16,6 +16,7 @@ import cs from './components/common/colorScheme.module.css'
 import brokenApp from './components/assets/brokenApp.png'
 import brokeImg from './components/assets/brokeImg.png'
 import fixImg from './components/assets/fixImg.png'
+import success from './components/assets/success.png'
 
 
 function App() {
@@ -85,8 +86,17 @@ function App() {
             <div className={'brokeField'}>
                 {!isBroken ?
                     <>
-                        <span>Please, do not press the button</span>
-                        <img src={brokeImg} alt="" onClick={()=>onBroken(!isBroken)}/>
+                    {colorScheme === "" ?
+                        <>
+                            <span>Please, do not press the button</span>
+                            <img src={brokeImg} alt="" onClick={()=>onBroken(!isBroken)}/>
+                        </>
+                        :
+                        <>
+                            <span>This color scheme is stable</span>
+                            <img src={success} alt="" />
+                        </>
+                    }
                     </>
                     :
                     <>
