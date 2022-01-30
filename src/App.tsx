@@ -14,7 +14,7 @@ import {
 import {AppRootStateType} from './redux/store';
 import cs from './components/common/colorScheme.module.css'
 import brokenApp from './components/assets/brokenApp.png'
-import brokeImg from './components/assets/brokeImg.png'
+import brokeImg from './components/assets/hammer.png'
 import fixImg from './components/assets/fixImg.png'
 import success from './components/assets/success.png'
 
@@ -88,8 +88,8 @@ function App() {
                     <>
                     {colorScheme === "" ?
                         <>
-                            <span>Please, do not press the button</span>
-                            <img src={brokeImg} alt="" onClick={()=>onBroken(!isBroken)}/>
+                            <span>Please, do not click on the hammer</span>
+                            <img src={brokeImg} alt="" onClick={()=>onBroken(true)}/>
                         </>
                         :
                         <>
@@ -101,7 +101,7 @@ function App() {
                     :
                     <>
                         <span>Oh, I told you... Fix it?</span>
-                        <img src={fixImg} alt="" onClick={()=>onBroken(!isBroken)}/>
+                        <img src={fixImg} alt="" onClick={()=>onBroken(false)}/>
                     </>
                 }
 
