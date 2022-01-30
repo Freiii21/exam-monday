@@ -1,14 +1,19 @@
 .common {
-  /*display: grid;*/
-  /*grid-template-columns: 500px 500px;*/
-  /*grid-gap: 100px;*/
-  /*width: 1100px;*/
-  /*margin: auto;*/
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap-reverse;
+  /*margin-top: 50px;*/
+  /*flex-wrap: wrap-reverse;*/
+}
+.container{
+  display: flex;
+  margin-top: 200px;
+}
+.containerBroken{
+  display: flex;
+  margin-top: 150px;
 }
 .frame {
   width: 506px;
@@ -19,4 +24,14 @@
   display: grid;
   grid-template-rows: 250px 100px;
   background-color: rgba(117, 190, 218, 0.2);
+}
+.brokeField{
+  display: flex;
+  align-items: center;
+  color: dimgrey;
+  margin-bottom: 10px;
+}
+.brokeField img{
+  height: 45px;
+  margin-left: 10px;
 }

@@ -14,6 +14,7 @@ export type SettingsStateType = {
     settingParameters: settingsType
     editMode: boolean
     colorScheme: string
+    isBroken: boolean
 }
 
 const initialState: SettingsStateType = {
@@ -29,10 +30,11 @@ const initialState: SettingsStateType = {
         }
     },
     editMode: false,
-    colorScheme: ""
+    colorScheme: "",
+    isBroken: false
 };
 type ActionsType = IncCounterAT | ResetCounterAT | SetSettingsAT | SetNewValueAT | SetSettingsFromLocalStorageAT
-    | SetColorAT;
+    | SetColorAT | ToggleBrokenAT;
 
 export const Reducer = (state: SettingsStateType = initialState, action: ActionsType): SettingsStateType => {
     switch (action.type) {
@@ -80,6 +82,11 @@ export const Reducer = (state: SettingsStateType = initialState, action: Actions
                 colorScheme: action.color,
                 editMode: true
             }
+        case 'SET_BROKEN':
+            return {
+                ...state,
+                isBroken: action.broken,
+            }
         default:
             return state;
     }
@@ -107,6 +114,10 @@ type SetColorAT = {
     type: 'SET_COLOR'
     color: string
 }
+type ToggleBrokenAT = {
+    type: 'SET_BROKEN'
+    broken: boolean
+}
 
 export const incCounterAC = (): IncCounterAT => ({type: 'INC_COUNTER'});
 export const resetCounterAC = (): ResetCounterAT => ({type: 'RESET_COUNTER'});
@@ -128,6 +139,12 @@ export const setColorAC = (color: string): SetColorAT => {
     return {
         type: 'SET_COLOR',
         color
+    }
+}
+export const toggleBrokenAC = (broken: boolean): ToggleBrokenAT => {
+    return {
+        type: 'SET_BROKEN',
+        broken
     }
 }
 
