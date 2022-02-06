@@ -148,17 +148,11 @@ export const toggleBrokenAC = (broken: boolean): ToggleBrokenAT => {
     }
 }
 
-export const setNewSettings = (settingParameters: settingsType, colorScheme: string) => {
-    return (dispatch: Dispatch) => {
-        localStorage.setItem('counterValues', JSON.stringify(settingParameters))
-        localStorage.setItem('colorSchema', JSON.stringify(colorScheme))
-        dispatch(setSettingsAC());
-    }
-}
 export const getSettingsFromLocalStorage = () => {
     return (dispatch: Dispatch) => {
         const valueFromLocalStorage = localStorage.getItem('counterValues');
         const colorFromLocalStorage = localStorage.getItem('colorSchema');
+        const isBrokenFromLocalStorage = localStorage.getItem('appBroken');
         if(valueFromLocalStorage){
             const initialSettings = JSON.parse(valueFromLocalStorage);
             dispatch(setSettingFromLocalStorageAC(initialSettings));
@@ -168,6 +162,26 @@ export const getSettingsFromLocalStorage = () => {
             dispatch(setColorAC(initialColor));
             dispatch(setSettingsAC());
         }
+        if(isBrokenFromLocalStorage){
+            const initialBrokenStatus = JSON.parse(isBrokenFromLocalStorage);
+            dispatch(toggleBrokenAC(initialBrokenStatus));
+        }
+    }
+}
+
+export const setNewSettings = (settingParameters: settingsType, colorScheme: string) => {
+    return (dispatch: Dispatch) => {
+        localStorage.setItem('counterValues', JSON.stringify(settingParameters))
+        localStorage.setItem('colorSchema', JSON.stringify(colorScheme))
+        dispatch(setSettingsAC());
+    }
+}
+
+export const toggleBrokenThunk = (broken: boolean) => {
+    return (dispatch: Dispatch) => {
+        localStorage.setItem('appBroken', JSON.stringify(broken))
+        localStorage.setItem('colorSchema', JSON.stringify(""))
+        dispatch(toggleBrokenAC(broken));
     }
 }
 

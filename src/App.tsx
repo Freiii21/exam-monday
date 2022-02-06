@@ -9,7 +9,7 @@ import {
     resetCounterAC, setColorAC,
     setNewSettings,
     setNewValueAC, settingNamesType,
-    settingsType, toggleBrokenAC
+    settingsType, toggleBrokenThunk
 } from './redux/reducer';
 import {AppRootStateType} from './redux/store';
 import cs from './components/common/colorScheme.module.css'
@@ -42,8 +42,8 @@ function App() {
     const onSet = () => dispatch(setNewSettings(settingParameters, colorScheme));
     const onNewValue = (valueType: settingNamesType, newValue: number) => dispatch(setNewValueAC(valueType, newValue));
     const setColor = (color: string) => dispatch(setColorAC(color));
-    const onBroken = (broken: boolean) => dispatch(toggleBrokenAC(broken));
-
+    const onBroken = (broken: boolean) => dispatch(toggleBrokenThunk(broken));
+// save isBroken to localstorage and color scheme
 
 
     return (
