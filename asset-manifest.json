@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/exam-monday/static/css/main.798d3ce2.chunk.css",
+    "main.js": "/exam-monday/static/js/main.13ddf99f.chunk.js",
+    "main.js.map": "/exam-monday/static/js/main.13ddf99f.chunk.js.map",
+    "runtime-main.js": "/exam-monday/static/js/runtime-main.bf997cd2.js",
+    "runtime-main.js.map": "/exam-monday/static/js/runtime-main.bf997cd2.js.map",
+    "static/js/2.af70307b.chunk.js": "/exam-monday/static/js/2.af70307b.chunk.js",
+    "static/js/2.af70307b.chunk.js.map": "/exam-monday/static/js/2.af70307b.chunk.js.map",
+    "static/js/3.b3c46f06.chunk.js": "/exam-monday/static/js/3.b3c46f06.chunk.js",
+    "static/js/3.b3c46f06.chunk.js.map": "/exam-monday/static/js/3.b3c46f06.chunk.js.map",
+    "index.html": "/exam-monday/index.html",
+    "static/css/main.798d3ce2.chunk.css.map": "/exam-monday/static/css/main.798d3ce2.chunk.css.map",
+    "static/js/2.af70307b.chunk.js.LICENSE.txt": "/exam-monday/static/js/2.af70307b.chunk.js.LICENSE.txt",
+    "static/media/brokenApp.d97d9377.png": "/exam-monday/static/media/brokenApp.d97d9377.png",
+    "static/media/success.1cae54fb.png": "/exam-monday/static/media/success.1cae54fb.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf997cd2.js",
+    "static/js/2.af70307b.chunk.js",
+    "static/css/main.798d3ce2.chunk.css",
+    "static/js/main.13ddf99f.chunk.js"
+  ]
+}
