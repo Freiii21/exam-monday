@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/exam-monday/static/css/main.798d3ce2.chunk.css",
-    "main.js": "/exam-monday/static/js/main.13ddf99f.chunk.js",
-    "main.js.map": "/exam-monday/static/js/main.13ddf99f.chunk.js.map",
-    "runtime-main.js": "/exam-monday/static/js/runtime-main.bf997cd2.js",
-    "runtime-main.js.map": "/exam-monday/static/js/runtime-main.bf997cd2.js.map",
-    "static/js/2.af70307b.chunk.js": "/exam-monday/static/js/2.af70307b.chunk.js",
-    "static/js/2.af70307b.chunk.js.map": "/exam-monday/static/js/2.af70307b.chunk.js.map",
-    "static/js/3.b3c46f06.chunk.js": "/exam-monday/static/js/3.b3c46f06.chunk.js",
-    "static/js/3.b3c46f06.chunk.js.map": "/exam-monday/static/js/3.b3c46f06.chunk.js.map",
-    "index.html": "/exam-monday/index.html",
-    "static/css/main.798d3ce2.chunk.css.map": "/exam-monday/static/css/main.798d3ce2.chunk.css.map",
-    "static/js/2.af70307b.chunk.js.LICENSE.txt": "/exam-monday/static/js/2.af70307b.chunk.js.LICENSE.txt",
-    "static/media/brokenApp.d97d9377.png": "/exam-monday/static/media/brokenApp.d97d9377.png",
-    "static/media/success.1cae54fb.png": "/exam-monday/static/media/success.1cae54fb.png"
+    "main.css": "/react-counter/static/css/main.798d3ce2.chunk.css",
+    "main.js": "/react-counter/static/js/main.8f5296ef.chunk.js",
+    "main.js.map": "/react-counter/static/js/main.8f5296ef.chunk.js.map",
+    "runtime-main.js": "/react-counter/static/js/runtime-main.46bf7a5e.js",
+    "runtime-main.js.map": "/react-counter/static/js/runtime-main.46bf7a5e.js.map",
+    "static/js/2.54ff5010.chunk.js": "/react-counter/static/js/2.54ff5010.chunk.js",
+    "static/js/2.54ff5010.chunk.js.map": "/react-counter/static/js/2.54ff5010.chunk.js.map",
+    "static/js/3.eaed2b25.chunk.js": "/react-counter/static/js/3.eaed2b25.chunk.js",
+    "static/js/3.eaed2b25.chunk.js.map": "/react-counter/static/js/3.eaed2b25.chunk.js.map",
+    "index.html": "/react-counter/index.html",
+    "static/css/main.798d3ce2.chunk.css.map": "/react-counter/static/css/main.798d3ce2.chunk.css.map",
+    "static/js/2.54ff5010.chunk.js.LICENSE.txt": "/react-counter/static/js/2.54ff5010.chunk.js.LICENSE.txt",
+    "static/media/brokenApp.d97d9377.png": "/react-counter/static/media/brokenApp.d97d9377.png",
+    "static/media/success.1cae54fb.png": "/react-counter/static/media/success.1cae54fb.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.bf997cd2.js",
-    "static/js/2.af70307b.chunk.js",
+    "static/js/runtime-main.46bf7a5e.js",
+    "static/js/2.54ff5010.chunk.js",
     "static/css/main.798d3ce2.chunk.css",
-    "static/js/main.13ddf99f.chunk.js"
+    "static/js/main.8f5296ef.chunk.js"
   ]
 }
